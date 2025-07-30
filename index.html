@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IGNACIO — Portfolio of Clarity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --border: #fff;
+      --muted: #ccc;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Helvetica', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 5%;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px solid var(--border);
+      box-shadow: 0 0 0 5px #fff, 0 0 15px #000;
+      margin-bottom: 25px;
+      transition: transform 0.5s ease;
+    }
+
+    .avatar:hover {
+      transform: scale(1.05);
+    }
+
+    .typing {
+      font-size: 2.8em;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 3.5s steps(40, end) forwards, blink 0.75s step-end infinite, fadeBounce 0.5s 3.4s ease-out forwards;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; opacity: 1; }
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: transparent }
+      50% { border-color: var(--text) }
+    }
+
+    @keyframes fadeBounce {
+      0% { opacity: 0; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    section {
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+      animation: fadeInUp 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.6em;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.05em;
+      margin-bottom: 10px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .project-card {
+      border: 2px solid var(--border);
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+
+    .project-card a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      margin: 10px 15px;
+      color: var(--text);
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      border-bottom: 1px solid var(--text);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: var(--muted);
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .typing { font-size: 2.2em }
+      .avatar { width: 130px; height: 130px }
+      .projects-grid { grid-template-columns: 1fr }
+    }
+
+    @media (max-width: 480px) {
+      .typing { font-size: 1.6em }
+      .avatar { width: 100px; height: 100px }
+      .project-card { font-size: 0.95em }
+      .contact-links a { margin: 0 10px }
+    }
+  </style>
+  <script>
+    document.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section');
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        const delay = index * 0.3;
+        if (rect.top >= 0 && rect.top < window.innerHeight) {
+          setTimeout(() => {
+            section.style.animation = 'fadeInUp 1.2s ease-out forwards';
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0) scale(1)';
+          }, delay * 1000);
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <img src="image03.jpg" alt="IGNACIO Portrait" class="avatar" />
+      <h1 class="typing">Shariar Mahmud Saif — aka IGNACIO</h1>
+      <p>Architect of Clean Code & Clarity</p>
+    </section>
+
+    <section class="about">
+      <h2>ABOUT ME</h2>
+      <p>I architect immersive systems with modular precision and cinematic clarity.</p>
+      <p><strong>Frontend:</strong> React, Next.js, Vue, Tailwind CSS</p>
+      <p><strong>Backend:</strong> Laravel, Django, Python, PHP</p>
+      <p><strong>Systems:</strong> C++, PostgreSQL</p>
+      <p><strong>Philosophy:</strong> Typography-Driven · Golden Ratio · Grid-Based</p>
+    </section>
+
+    <section class="projects">
+      <h2>PROJECTS</h2>
+      <div class="projects-grid">
+        <div class="project-card">🗂️ File Explorer Web<br>A modern web app for file sharing with a dark-themed UI.<br><a href="https://github.com/ShariarMahmudSaif/file-explorer-web" target="_blank">View on GitHub</a></div>
+        <div class="project-card">🏫 School Management System<br>A Python app for managing student/teacher records and payments.<br><a href="https://github.com/ShariarMahmudSaif/school-management-system" target="_blank">View on GitHub</a></div>
+        <div class="project-card">🛒 Shop System<br>XLSX sync · Inventory & UI logic</div>
+        <div class="project-card">🔐 Seelen UI<br>Security testing · Interface stability</div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>CONTACT</h2>
+      <div class="contact-links">
+        <a href="https://instagram.com/shariarmahmudsaif" target="_blank">Instagram</a>
+        <a href="https://facebook.com/Ignacio.hyper" target="_blank">Facebook</a>
+        <a href="https://github.com/ShariarMahmudSaif" target="_blank">GitHub</a>
+        <a href="https://mrignacio.carrd.co/" target="_blank">Main Portfolio</a>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 IGNACIO — Engineering clarity into every layer of the stack.
+    </footer>
+  </div>
+</body>
+</html>
